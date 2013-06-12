@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+
+{% block body %}
+
+<div class="container">
+  <div class="row">
+    <div class="box vmiddle span4 offset4">
+      <br>
+      {% if msg %}
+          <p class="text-error">{{ msg }}</p>
+      {% endif %}
+      <form method="POST" action="">{% csrf_token %}
+
+	<p>
+	  <input type="text" name="username" value="" placeholder="{% trans "username" %}..." class="span4"/>
+	</p>
+	<p>
+	  <input type="password" name="password" value="" placeholder="{% trans "password" %}..." class="span4" />
+	  <input type="hidden" name="next" value="{{ next }}" />
+	</p>
+	<p class="pull-left">
+	  <input type="submit" name="submit" value="{% trans "login" %} " class="span1 btn btn-success" />
+	</p>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+
+{% endblock body %}

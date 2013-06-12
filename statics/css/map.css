@@ -1,0 +1,14 @@
+#map {
+    position: fixed;
+    z-index: 10;
+}
+.olEditorControlEditorPanel {
+    border-radius: 3px;
+    Background: #efefef;
+    margin-right: -10px;
+}
+
+.olEditorControlEditorPanel .olControlSeparatorItemInactive {
+    Background-color: #dfdfdf;
+}
+img.olTileImage { max-width: none; }

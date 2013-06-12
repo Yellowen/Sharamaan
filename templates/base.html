@@ -1,0 +1,43 @@
+{% load i18n %}
+{% get_language_info for LANGUAGE_CODE as lang %}
+
+<!DOCTYPE HTML>
+<html lang="{{ lang.code }}">
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+  <title>{% block title %}{% trans "Sharamaan" %}{% endblock title %}</title>
+
+  {% block head %}
+  <link rel="stylesheet" href="{{ MEDIA_URL }}css/bootstrap.min.css">
+
+  {% if lang.bidi %}
+  <link rel="stylesheet" href="{{ MEDIA_URL }}css/bidi/bootstrap.rtl.css">
+  <link rel="stylesheet" href="{{ MEDIA_URL }}css/bidi/style.css">
+
+  {% else %}
+  {% endif %}
+  <link rel="stylesheet" href="{{ MEDIA_URL }}css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="{{ MEDIA_URL }}css/common.css">
+
+
+  {% block extrahead %}
+  {% endblock extrahead %}
+  {% endblock head %}
+
+
+</head>
+
+<body>
+  {% block body %}
+
+  <header>
+  </header>
+    {% block content %}
+
+    {% endblock content %}
+
+  {% endblock body %}
+</body>
+</html>
