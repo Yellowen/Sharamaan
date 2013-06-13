@@ -20,27 +20,42 @@ from django.shortcuts import render_to_response as rr
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
+from django.utils.translation import ugettext as _
+
+from auth.forms import LoginForm
 
 
 def login_view(request):
-    username = request.POST['username']
-    password = request.POST['password']
 
-    user = authenticate(username=username, password=password)
+    if request.method == "POST":
+        form = LoginForm(request.POST)
+        next_ = request.POST.get("next", "/")
 
-    if user is not None:
-        if user.is_active:
-            login(request, user)
-            return HttpResponseRedirect(
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
 
-                )
-        else:
-            return rr("auth/login.html",
-                      {"msg": _("Your account is not active.")},
-                      context_instance=RequestContext(request))
+            user = authenticate(username=username, password=password)
+
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
+                    return HttpResponseRedirect(next_)
+                else:
+                    return rr("registration/login.html",
+                              {"msg": _("Your account is not active.")},
+                              context_instance=RequestContext(request))
+            else:
+                return rr("registration/login.html",
+                          {"msg": _("username or password is incorrect.")},
+                          context_instance=RequestContext(request))
 
     else:
-        return rr("auth/login.html", {},
+        next_ = request.GET.get("next", "/")
+        if request.user.is_authenticated():
+            return HttpResponseRedirect(next_)
+
+        return rr("registration/login.html", {"next": next_},
                   context_instance=RequestContext(request))
 
 
