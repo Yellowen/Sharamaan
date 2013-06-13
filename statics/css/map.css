@@ -1,6 +1,11 @@
 #map {
     position: fixed;
-    z-index: 10;
+    z-index: 100;
+    Background: white;
+    height: 100%;
+    top: 27px;
+    left: 0px;
+
 }
 .olEditorControlEditorPanel {
     border-radius: 3px;
@@ -12,3 +17,30 @@
     Background-color: #dfdfdf;
 }
 img.olTileImage { max-width: none; }
+
+#panel {
+    width: 300px;
+    height: 100%;
+    Background: white;
+    position: absolute;
+    top: 27px;
+
+}
+
+#panel #panelcontent {
+    padding: 20px;
+}
+#statusbar {
+    Background: #3f3f3f;
+    color: white;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    height: 27px;
+    z-index: 200;
+    font-size: 12px;
+}
+
+#statusbar div{
+    padding: 5px 10px;
+}

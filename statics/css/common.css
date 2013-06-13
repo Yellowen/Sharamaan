@@ -1,0 +1,32 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+html, body, #skel {
+    width: 100%;
+    height: 100%;
+}
+
+
+#skel {
+    position: absolute;
+}
+.vmiddle {
+    margin-top: 150px;
+}
+
+.box {
+    border: 1px solid #dfdfdf;
+    border-radius: 4px;
+    padding: 30px;
+}
+
+header {
+    Background: #3f3f3f;
+    width: 100%;
+    height: 27px;
+    position: fixed;
+    color: white;
+}
