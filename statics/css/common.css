@@ -28,5 +28,24 @@ header {
     width: 100%;
     height: 27px;
     position: fixed;
+    color: #eeeeec;
+    font-size: 12px;
+}
+
+header a{
+    text-decoration: none;
     color: white;
+
+}
+header a:hover {
+    text-decoration: none;
+    color: orange;
+}
+.vmenu {
+    list-style: none;
+    padding: 3px 10px;
+}
+.vmenu li {
+    display: inline;
+    padding: 0px 10px;
 }

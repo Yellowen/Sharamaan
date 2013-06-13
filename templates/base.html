@@ -34,6 +34,20 @@
   {% block body %}
 
   <header>
+    <nav class="pull-{% if lang.bidi %}right{% else %}left{% endif %}">
+      <ul class="vmenu">
+	<li><a href="/"><i class="icon-map-marker"></i> {% trans "Map" %}</a></li>
+	<li><a href="/setttings/"><i class="icon-cog"></i> {% trans "Settings" %}</a></li>
+	<li><a href="/help/"><i class="icon-book"></i> {% trans "Help" %}</a></li>
+      </ul>
+    </nav>
+    <nav class="pull-{% if lang.bidi %}left{% else %}right{% endif %}">
+      <ul class="vmenu">
+	<li>{{ request.user.username }}</li>
+	<li><a href="{% url "logout" %}"><i class="icon-signout"></i> {% trans "logout" %}</a></li>
+      </ul>
+
+    </nav>
   </header>
 
     {% block content %}

@@ -6,3 +6,13 @@
 #map, #statusbar {
     border-right: 1px solid #3f3f3f;
 }
+
+@font-face {
+  font-family: 'Droid Arabic Naskh';
+  src: url('/statics/font/DroidNaskh-Regular.ttf') format('truetype'); /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+}
+
+
+* {
+    font-family: 'Droid Arabic Naskh', serif;
+}
