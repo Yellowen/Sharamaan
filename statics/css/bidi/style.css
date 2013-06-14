@@ -16,3 +16,16 @@
 * {
     font-family: 'Droid Arabic Naskh', serif;
 }
+
+.olEditorControlEditorPanel, label {
+    font-size: 10px;
+}
+.oleDialog {
+    font-size: 12px;
+    text-align: right;
+
+}
+
+.oleDrawTextPopup {
+    text-align: right;
+}

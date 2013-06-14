@@ -29,11 +29,18 @@ function map_init() {
 	controls: []
     });
 
+
+    // TODO: Add a control to panel which allow user to switch between
+    //       Advance and basic mode.
+    /*['CleanFeature', 'DeleteFeature', 'DeleteAllFeatures', 'Dialog', 'DrawHole', 'DrawRegular',
+			 'DrawPolygon', 'DrawPath', 'DrawPoint', 'DrawText', 'EditorPanel', 'ImportFeature',
+			 'MergeFeature', 'SplitFeature', 'CADTools',
+			 'TransformFeature']*/
     editor = new OpenLayers.Editor(map, {
-        activeControls: ['Navigation', 'SnappingSettings', 'CADTools',
+        activeControls: ['ImportFeature', 'Separator', 'Navigation', 'CADTools',
 			 'TransformFeature', 'Separator',
-			 'DeleteFeature', 'DragFeature', 'SelectFeature',
-			 'Separator', 'DrawHole', 'ModifyFeature',
+			 'DeleteFeature','DeleteAllFeatures', 'SplitFeature', 'DragFeature', 'SelectFeature', 'MergeFeature',
+			 'Separator', 'DrawHole', 'ModifyFeature', 'DrawText',
 			 'Separator'],
         featureTypes: ['regular', 'polygon', 'path', 'point']
     });
