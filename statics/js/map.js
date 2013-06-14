@@ -1,4 +1,4 @@
-var map;
+var map, editor;
 
 var custom_button_func = function(){
     //Get a random coordinate from -90 to 90
@@ -23,11 +23,25 @@ var custom_button_func = function(){
 
 function map_init() {
 
-    OpenLayers.Lang.setCode('en');
+    OpenLayers.Lang.setCode(document.lang_code);
 
     map = new OpenLayers.Map("map", {
 	controls: []
     });
+
+    editor = new OpenLayers.Editor(map, {
+        activeControls: ['Navigation', 'SnappingSettings', 'CADTools',
+			 'TransformFeature', 'Separator',
+			 'DeleteFeature', 'DragFeature', 'SelectFeature',
+			 'Separator', 'DrawHole', 'ModifyFeature',
+			 'Separator'],
+        featureTypes: ['regular', 'polygon', 'path', 'point']
+    });
+    editor.startEditMode();
+
+
+
+
     var osm = new OpenLayers.Layer.OSM(
 	"Open Street Map"
     );
@@ -68,15 +82,6 @@ function map_init() {
         extractAttributes: true,
         visibility: true
     });
-
-    editor = new OpenLayers.Editor(map, {
-        activeControls: ['Navigation', 'SnappingSettings', 'CADTools', 'Separator', 'DeleteFeature',
-			 'TransformFeature', 'SelectFeature', 'Separator', 'DrawHole', 'ModifyFeature',
-			 'MerigeFeature', 'Separator', 'ImportFeature', 'separator'],
-        featureTypes: ['polygon', 'path', 'point'],
-        editLayer: wfsLayer
-    });
-    editor.startEditMode();
 
 
 

@@ -1,0 +1,6 @@
+{% load i18n %}
+{% get_language_info for LANGUAGE_CODE as lang %}
+<script type="text/javascript" src="{{ MEDIA_URL }}lib/ole/lib/Editor/Lang/{{ lang.code}}.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}lib/ole/lib/loader.js"></script>
+
+ <link rel="stylesheet" href="{{ MEDIA_URL }}lib/ole/theme/geosilk/geosilk.css" type="text/css" />
