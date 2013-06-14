@@ -596,8 +596,7 @@ def _install_req(py_executable, unzip=False, distribute=False,
 def file_search_dirs():
     here = os.path.dirname(os.path.abspath(__file__))
     dirs = ['.', here,
-            #join(here, 'virtualenv_support')]
-            '/usr/share/python-virtualenv/']
+            join(here, 'virtualenv_support')]
     if os.path.splitext(os.path.dirname(__file__))[0] != 'virtualenv':
         # Probably some boot script; just in case virtualenv is installed...
         try:
@@ -885,7 +884,7 @@ def main():
         'VIRTUALENV_SETUPTOOLS to make it the default ')
 
     # Set this to True to use distribute by default, even in Python 2.
-    parser.set_defaults(use_distribute=True)
+    parser.set_defaults(use_distribute=False)
 
     default_search_dirs = file_search_dirs()
     parser.add_option(
@@ -1914,7 +1913,7 @@ def create_bootstrap_script(extra_text, python_version=''):
 import os, subprocess
 def after_install(options, home_dir):
     subprocess.call([join(home_dir, 'bin', 'pip'),
-                     'install', 'ipython', 'django'])
+                     'install', 'ipython', 'django', 'psycopg2])
 
 
 def convert(s):
