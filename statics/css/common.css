@@ -41,13 +41,21 @@ header a:hover {
     text-decoration: none;
     color: orange;
 }
+header .vmenu {
+    padding: 3px 10px;
+}
+
+header .vmenu li {
+    padding: 0px 10px;
+
+}
+
 .vmenu {
     list-style: none;
-    padding: 3px 10px;
+
 }
 .vmenu li {
     display: inline;
-    padding: 0px 10px;
 }
 
 .login_bg {
@@ -63,4 +71,27 @@ header a:hover {
 
 .box {
     Background: white;
+}
+
+#panelheader {
+    width: 250px;
+    padding: 10px 0 0 0;
+    margin: 0 25px;
+    border-bottom: 1px solid #dfdfdf;
+}
+#panelheader a {
+    padding: 0 5px 4px 5px;
+}
+#panelheader a:hover {
+    text-decoration: none;
+    border-bottom: 3px solid orange;
+
+}
+
+#panelheader a:active, #panelheader a:focus, #panelheader .active {
+    border-bottom: 3px solid blue;
+}
+#panelheader li {
+    padding: 0 5px 4px 5px;
+    margin: 0 4px;
 }
