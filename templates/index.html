@@ -2,12 +2,13 @@
 {% load i18n %}
 
 {% block extrahead %}
-{% include 'include/jquery.html' %}
+
 {% include 'include/openlayers.html' %}
 {% include 'include/ole.html' %}
+<script src="{{ MEDIA_URL}}js/lib/require.js" data-main="{{ MEDIA_URL }}/js/main.js" type="text/javascript"></script>
 
-<script src="{{ MEDIA_URL}}js/init.js" type="text/javascript"></script>
-<script src="{{ MEDIA_URL}}js/map.js" type="text/javascript"></script>
+<!--<script src="{{ MEDIA_URL}}js/init.js" type="text/javascript"></script>
+<script src="{{ MEDIA_URL}}js/map.js" type="text/javascript"></script>-->
 
 <link type="text/css" rel="stylesheet" href="{{ MEDIA_URL}}css/map.css">
 {% endblock extrahead %}
@@ -33,3 +34,8 @@
 <div id="map">
 </div>
 {% endblock content %}
+
+
+{% block tail %}
+{% include "erb/index.html" %}
+{% endblock tail %}

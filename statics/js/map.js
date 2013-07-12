@@ -1,4 +1,7 @@
 var map, editor;
+var save_strategy;
+var v1;
+var json = new OpenLayers.Format.JSON({});
 
 var custom_button_func = function(){
     //Get a random coordinate from -90 to 90
@@ -19,82 +22,3 @@ var custom_button_func = function(){
 					    random_lat), 3);
     }
 };
-
-
-function map_init() {
-
-    OpenLayers.Lang.setCode(document.lang_code);
-
-    map = new OpenLayers.Map("map", {
-	controls: []
-    });
-
-
-    // TODO: Add a control to panel which allow user to switch between
-    //       Advance and basic mode.
-    /*['CleanFeature', 'DeleteFeature', 'DeleteAllFeatures', 'Dialog', 'DrawHole', 'DrawRegular',
-			 'DrawPolygon', 'DrawPath', 'DrawPoint', 'DrawText', 'EditorPanel', 'ImportFeature',
-			 'MergeFeature', 'SplitFeature', 'CADTools',
-			 'TransformFeature']*/
-    editor = new OpenLayers.Editor(map, {
-        activeControls: ['ImportFeature', 'Separator', 'Navigation', 'CADTools',
-			 'TransformFeature', 'Separator',
-			 'DeleteFeature','DeleteAllFeatures', 'SplitFeature', 'DragFeature', 'SelectFeature', 'MergeFeature',
-			 'Separator', 'DrawHole', 'ModifyFeature', 'DrawText',
-			 'Separator'],
-        featureTypes: ['regular', 'polygon', 'path', 'point']
-    });
-    editor.startEditMode();
-
-
-
-
-    var osm = new OpenLayers.Layer.OSM(
-	"Open Street Map"
-    );
-
-    arrayOSM = ["http://otile1.mqcdn.com/tiles/1.0.0/map/${z}/${x}/${y}.jpg",
-                "http://otile2.mqcdn.com/tiles/1.0.0/map/${z}/${x}/${y}.jpg",
-                "http://otile3.mqcdn.com/tiles/1.0.0/map/${z}/${x}/${y}.jpg",
-                "http://otile4.mqcdn.com/tiles/1.0.0/map/${z}/${x}/${y}.jpg"];
-
-    arrayAerial = ["http://otile1.mqcdn.com/tiles/1.0.0/sat/${z}/${x}/${y}.jpg",
-                   "http://otile2.mqcdn.com/tiles/1.0.0/sat/${z}/${x}/${y}.jpg",
-                   "http://otile3.mqcdn.com/tiles/1.0.0/sat/${z}/${x}/${y}.jpg",
-                   "http://otile4.mqcdn.com/tiles/1.0.0/sat/${z}/${x}/${y}.jpg"];
-
-    baseOSM = new OpenLayers.Layer.OSM("MapQuest-OSM Tiles", arrayOSM);
-    baseAerial = new OpenLayers.Layer.OSM("MapQuest Open Aerial Tiles", arrayAerial);
-
-    map.addLayer(baseOSM);
-    map.addLayer(baseAerial);
-
-    map.addControls([
-	new OpenLayers.Control.ZoomBox(),
-	new OpenLayers.Control.ZoomToMaxExtent(),
-	new OpenLayers.Control.PanZoomBar({}),
-	new OpenLayers.Control.LayerSwitcher({}),
-	new OpenLayers.Control.Permalink(),
-	new OpenLayers.Control.MousePosition({})
-    ]);
-
-    map.addLayers([osm]);
-    if (!map.getCenter()) {
-	map.zoomToMaxExtent();
-    }
-
-
-    var wfsLayer = new OpenLayers.Layer.Vector("Test Polygons", {
-        projection : "EPSG:4326",
-        extractAttributes: true,
-        visibility: true
-    });
-
-
-
-
-}
-
-$(function(){
-    map_init();
-});

@@ -23,6 +23,7 @@
 
   <script language="javascript">
     document.lang_code = "{{ lang.code }}";
+    document.media_url = "{{ MEDIA_URL }}";
   </script>
 
   {% block extrahead %}
@@ -53,11 +54,17 @@
     </nav>
   </header>
 
+  <div id="container">
+
     {% block content %}
 
     {% endblock content %}
+  </div>
 
   {% endblock body %}
   </div>
+  {% block tail %}
+
+  {% endblock tail %}
 </body>
 </html>
