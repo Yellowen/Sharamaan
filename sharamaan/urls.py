@@ -28,6 +28,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'sharamaan.views.index', name="map"),
+    url(r'^erb/(.*)$', 'sharamaan.views.erb', name="erb"),
     url(r'^accounts/', include('auth.urls')),
 
 )

@@ -29,3 +29,11 @@ def index(request):
     return rr("index.html",
               {},
               context_instance=RequestContext(request))
+
+def erb(request, path):
+    """
+    Serv the erb templates for backbone
+    """
+    template = "erb/%s" % path.replace("..", "")
+    return rr(template, {},
+              context_instance=RequestContext(request))
