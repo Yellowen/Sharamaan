@@ -30,6 +30,7 @@ urlpatterns = patterns('',
     url(r'^$', 'sharamaan.views.index', name="map"),
     url(r'^erb/(.*)$', 'sharamaan.views.erb', name="erb"),
     url(r'^accounts/', include('auth.urls')),
+    url(r'lands/', include("packages.transportation.lands.urls")),
 
 )
 

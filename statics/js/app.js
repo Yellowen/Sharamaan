@@ -4,6 +4,7 @@ define([
     'backbone',
     'router',
     "lib/utils",
+    "bootstrap"
 ], function($, _, Backbone, Router, func_map){
     var initialize = function(){
 	Router.initialize();

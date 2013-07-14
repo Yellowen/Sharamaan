@@ -5,13 +5,16 @@
     <input class="span2" id="layer-search-input" type="text" placeholder="{% trans "search" %}...">
     <button class="btn" type="button"><i class="icon-search" id="layer-search"></i></button>
   </div>
-  <button type="button" class="btn btn-success" id="add-layer"><i class="icon-plus"></i></button>
+  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add-layer-modal" id="add-layer"><i class="icon-plus"></i></button>
 </div>
 
-<table>
+<table class="layers-list table text-right">
   <% _.each(layers, function(layer) { %>
     <tr>
-      <td><%= layer.name %></td>
+      <td><%= layer.get("name") %></td>
     </tr>
   <% }) %>
 </table>
+
+
+{% include "erb/layers/form.html.erb" %}

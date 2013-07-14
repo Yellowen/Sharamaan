@@ -17,6 +17,9 @@ require.config({
 	    deps: [
 		"ole_lang"
 	    ],
+	},
+	bootstrap: {
+	    deps: ["jquery"]
 	}
 	/*'relational': {
 	    deps: ['backbone', ],
@@ -30,7 +33,7 @@ require.config({
 	ole_lang: document.media_url + 'lib/ole/lib/Editor/Lang/' + document.lang_code,
 	ole: document.media_url + "lib/ole/ole.min",
 	openlayers: document.media_url + 'lib/openlayers/OpenLayers',
-
+	bootstrap: document.media_url + 'js/lib/bootstrap.min',
 	//relational: '/statics/lib/backbone/backbone-relational',
 	//bbloader: '/statics/lib/backbone/bbloader',
     }

@@ -111,6 +111,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.gis',
     'debug_toolbar',
+    'packages.transportation.lands'
 
 )
 

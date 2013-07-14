@@ -1,6 +1,8 @@
 * Bugs
-  ** Window resize and 15px difference for #map
+** Window resize and 15px difference for #map
 
 * Task
-  ** Replace functional index by a class base and login protect it
-
+** DONE Replace functional index by a class base and login protect it
+** TODO create a basic platform to handle multiple GIS package installation.
+   For example trasnportation package install just with pip or similar package
+   managers.

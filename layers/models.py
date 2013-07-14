@@ -1,6 +1,24 @@
+# -----------------------------------------------------------------------------
+#    Sharamaan Web client - Web client of Sharamaan GIS suite
+#    Copyright (C) 2012-2013 Yellowen Development Team <checkout AUTHORS>
+#
+#    This program is free software; you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation; either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License along
+#    with this program; if not, write to the Free Software Foundation, Inc.,
+#    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+# -----------------------------------------------------------------------------
 from django.contrib.gis.db import models
-from django.contrib.translation import ugettext as _
-from django.contrib.auth.models import get_user_model
+from django.utils.translation import ugettext as _
+from django.contrib.auth import get_user_model
 
 
 class Layer(models.Model):
@@ -9,7 +27,7 @@ class Layer(models.Model):
     """
     name = models.CharField(_("name"), max_length=128)
 
-    created_by = models.ForeignKey(get_user_model,
+    created_by = models.ForeignKey(get_user_model(),
                                    verbose_name=_("created_by"))
     created_at = models.DateTimeField(_("created_at"),
                                       auto_now_add=True)
