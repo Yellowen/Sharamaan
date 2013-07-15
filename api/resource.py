@@ -53,12 +53,6 @@ class JsonResource(object):
 
     def object_list(self, request):
         objects = self.get_objects(request)
-        obj_list = []
-        #append = obj_list.append
-
-        #for i in objects:
-        #    append(i.to_json())
-
         return HttpResponse(json.dumps([i.to_json() for i in objects]),
                             mimetype="text/json")
 

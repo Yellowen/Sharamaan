@@ -1,0 +1,19 @@
+{% load i18n %}
+<div class="row">
+
+  <div class="input-append ">
+    <input class="span2" id="layer-search-input" type="text" placeholder="{% trans "search" %}...">
+    <button class="btn" type="button"><i class="icon-search" id="layer-search"></i></button>
+  </div>
+  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add-layer-modal" id="add-layer"><i class="icon-plus"></i></button>
+</div>
+
+<table class="layers-list table text-right">
+  <% _.each(layers, function(layer) { %>
+    <tr>
+      <td><%= layer.get("name") %></td>
+    </tr>
+  <% }) %>
+</table>
+
+{% include "erb/lands/form.html.erb" %}

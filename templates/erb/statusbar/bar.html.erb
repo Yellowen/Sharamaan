@@ -1,0 +1,23 @@
+{% load i18n %}
+<div>
+  <span>
+    {% trans "layer name" %}:
+  </span>
+
+  <% if (layer) { %>
+    <span>
+      <%= layer.get("name") %>
+    </span>
+
+    <% if (is_edit_time) { %>
+      <span class="pull-left">
+        <span><a class="btn-link" data-id="<%= layer.get("id") %>" title="{% trans 'save' %}"><i class="icon-ok icon-large"></i></a></span>
+        <span><a class="btn-link" data-id="<%= layer.get("id") %>" title="{% trans 'cancel' %}"><i class="icon-minus icon-large"></i></a></span>
+        <span><a class="btn-link" data-id="<%= layer.get("id") %>" title="{% trans 'delete' %}"><i class="icon-remove icon-large"></i></a></span>
+      </span>
+
+    <% } %>
+    <% } %>
+
+
+</div>

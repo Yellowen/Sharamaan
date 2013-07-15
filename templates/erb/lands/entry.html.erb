@@ -1,0 +1,12 @@
+{% load i18n %}
+<tr>
+  <td><% if (layer.get("is_new")) { %><i class="icon-asterisk"></i><% } %> <%= layer.get("name") %></td>
+
+  <td style="text-align: left;">
+    <span data-id="<%= layer.get('id') %>" class="edit-layer-vector" title="{% trans 'Edit on map'  %}"><i class="icon-arrow-left"></i></span>
+    <span data-id="<%= layer.get('id') %>" class="remove-layer" title="{% trans 'Delete'  %}"><i class="icon-remove"></i></span>
+    <% if (layer.get("is_new")) { %>
+      <span data-id="<%= layer.get('id') %>" class="save-layer" title="{% trans 'Save'  %}"><i class="icon-ok"></i></span>
+    <% } %>
+  </td>
+</tr>

@@ -3,15 +3,16 @@ define([
     'underscore',
     'backbone',
     'router',
+    "lib/map",
     "lib/utils",
+    "lib/statusbar",
     "bootstrap"
-], function($, _, Backbone, Router, func_map){
+], function($, _, Backbone, Router, map_init, func_map, StatusBar){
     var initialize = function(){
 	Router.initialize();
 
 	$(function(){
 
-	    func_map.map_init();
 
 	    // ---------------------------------------------------------
 	    // TODO: Remove this snippet of code with more suitable one.
@@ -19,6 +20,7 @@ define([
 	    // Set the #map size
 	    console.log("Setting new size");
 	    func_map.resize_map();
+	    map_init();
 
 	    // bound the resize_map function to window resize event
 	    $(window).resize(func_map.resize_map);
@@ -45,6 +47,8 @@ define([
 	    });
 	    // ----------------------------------------------------------
 
+	    document.statusbar = new StatusBar();
+	    document.statusbar.render();
 	});
 
     }
