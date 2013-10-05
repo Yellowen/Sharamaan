@@ -33,5 +33,4 @@ nosetests.xml
 .project
 .pydevproject
 env/
-statics/lib/
 packages/
